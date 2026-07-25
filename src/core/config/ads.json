@@ -1,0 +1,9 @@
+{
+  "adCampaigns": [],
+  "utmTrackingEnabled": true,
+  "dynamicParameters": {
+    "keyword": "kw",
+    "matchtype": "mt",
+    "device": "dev"
+  }
+}

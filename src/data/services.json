@@ -1,0 +1,44 @@
+[
+  {
+    "id": "ai-marketing-os",
+    "title": "AI Marketing OS Integration",
+    "shortDescription": "Sistem operasi pemasaran digital berbasis kecerdasan buatan untuk mengotomatisasi konversi.",
+    "description": "Kami membangun integrasi AI Marketing OS untuk membantu bisnis Anda melakukan otomatisasi pembuatan landing page, pengelolaan kampanye iklan, penulisan konten berkinerja tinggi, dan analisis performa pemasaran secara real-time.",
+    "icon": "cpu",
+    "slug": "ai-marketing-os",
+    "features": [
+      "Dynamic Landing Page Generation",
+      "AI-Generated Copywriting",
+      "Automated UTM Tracking & Schema",
+      "Ultra-fast static loading (<1s)"
+    ]
+  },
+  {
+    "id": "digital-ads-optimization",
+    "title": "Digital Ads Optimization",
+    "shortDescription": "Optimasi kampanye iklan Google Ads, FB Ads, dan TikTok Ads dengan ROI tinggi.",
+    "description": "Pengelolaan kampanye iklan digital berbayar dengan pendekatan data-driven untuk memaksimalkan return on ad spend (ROAS). Kami menghubungkan langsung landing page dengan sistem tracking super presisi.",
+    "icon": "trending-up",
+    "slug": "digital-ads-optimization",
+    "features": [
+      "Custom Pixel & GTM Setup",
+      "Multi-variant A/B Testing",
+      "Audience Segmentation",
+      "Monthly Detailed Performance Report"
+    ]
+  },
+  {
+    "id": "seo-marketing-engine",
+    "title": "SEO Marketing Engine",
+    "shortDescription": "Mendominasi pencarian Google menggunakan generator halaman web super cepat & terstruktur.",
+    "description": "Optimasi mesin pencari menggunakan kerangka kerja statis super cepat. Struktur schema.org lengkap, markup semantik, dan optimasi Core Web Vitals untuk memastikan kata kunci Anda nangkring di halaman pertama.",
+    "icon": "search",
+    "slug": "seo-marketing-engine",
+    "features": [
+      "100/100 Lighthouse SEO Score",
+      "Automatic Schema JSON-LD Markup",
+      "Local SEO Page Generator (Multi-city)",
+      "High Authority Backlink Strategy"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "googleAnalytics": {
+    "enabled": true,
+    "measurementId": "G-XXXXXXXXXX"
+  },
+  "googleTagManager": {
+    "enabled": false,
+    "containerId": "GTM-XXXXXXX"
+  },
+  "facebookPixel": {
+    "enabled": true,
+    "pixelId": "123456789012345"
+  },
+  "tiktokPixel": {
+    "enabled": false,
+    "pixelId": "CXXXXXXXXXXXXXXXXXX"
+  },
+  "clarity": {
+    "enabled": false,
+    "projectId": "xxxxxxxxxx"
+  }
+}

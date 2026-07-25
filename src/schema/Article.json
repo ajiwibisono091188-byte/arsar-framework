@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "{{ article.title }}",
+  "image": [
+    "{{ article.image }}"
+  ],
+  "datePublished": "{{ article.datePublished }}",
+  "dateModified": "{{ article.dateModified or article.datePublished }}",
+  "author": [{
+    "@type": "Person",
+    "name": "{{ article.author or company.name }}",
+    "url": "{{ company.website }}"
+  }],
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ company.name }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ company.logo }}"
+    }
+  },
+  "description": "{{ article.description }}"
+}

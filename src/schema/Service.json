@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "{{ service.title }}",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "{{ company.name }}",
+    "image": "{{ company.logo }}",
+    "telephone": "{{ company.phone }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ company.address.streetAddress }}",
+      "addressLocality": "{{ company.address.addressLocality }}",
+      "addressRegion": "{{ company.address.addressRegion }}",
+      "postalCode": "{{ company.address.postalCode }}",
+      "addressCountry": "ID"
+    }
+  },
+  "description": "{{ service.description }}",
+  "areaServed": {
+    "@type": "Country",
+    "name": "ID"
+  }
+}

@@ -1,0 +1,49 @@
+<!-- Modal Component -->
+<div x-data="{ open: false }" 
+     @open-modal.window="open = true" 
+     @keydown.escape.window="open = false"
+     x-show="open" 
+     class="fixed inset-0 z-50 overflow-y-auto" 
+     style="display: none;">
+  <!-- Backdrop Blur -->
+  <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" 
+       x-show="open" 
+       x-transition:enter="ease-out duration-300"
+       x-transition:enter-start="opacity-0"
+       x-transition:enter-end="opacity-100"
+       x-transition:leave="ease-in duration-200"
+       x-transition:leave-start="opacity-100"
+       x-transition:leave-end="opacity-0"
+       @click="open = false"></div>
+
+  <!-- Modal Content Container -->
+  <div class="flex min-h-full items-center justify-center p-4 text-center">
+    <div class="relative transform overflow-hidden rounded-2xl bg-gray-900 border border-white/10 p-8 text-left shadow-2xl transition-all max-w-lg w-full"
+         x-show="open"
+         x-transition:enter="ease-out duration-300"
+         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+         x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+         x-transition:leave="ease-in duration-200"
+         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+      
+      <!-- Close button -->
+      <button @click="open = false" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors focus:outline-none">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Slot content placeholder -->
+      <div class="mt-4">
+        <h3 class="text-xl font-bold text-white mb-2">Informasi Penting</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+          Gunakan tombol di atas untuk mengirim event custom dari window untuk memicu pop-up informasi pemasaran ini.
+        </p>
+        <button @click="open = false" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition-colors">
+          Tutup Dialog
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

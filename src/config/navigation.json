@@ -1,0 +1,33 @@
+{
+  "header": [
+    { "label": "Beranda", "path": "/" },
+    {
+      "label": "Layanan",
+      "path": "/services",
+      "children": [
+        { "label": "AI Marketing OS", "path": "/services/ai-marketing" },
+        { "label": "Digital Advertising", "path": "/services/digital-ads" },
+        { "label": "SEO Optimization", "path": "/services/seo" }
+      ]
+    },
+    { "label": "Artikel", "path": "/blog" },
+    { "label": "Hubungi Kami", "path": "/contact" }
+  ],
+  "footer": {
+    "quickLinks": [
+      { "label": "Tentang Kami", "path": "/about" },
+      { "label": "Layanan Kami", "path": "/services" },
+      { "label": "Karir", "path": "/careers" },
+      { "label": "Kontak", "path": "/contact" }
+    ],
+    "services": [
+      { "label": "AI Marketing OS", "path": "/services/ai-marketing" },
+      { "label": "Web Development", "path": "/services/web-development" },
+      { "label": "Social Media Ads", "path": "/services/social-ads" }
+    ],
+    "legal": [
+      { "label": "Kebijakan Privasi", "path": "/privacy-policy" },
+      { "label": "Syarat & Ketentuan", "path": "/terms" }
+    ]
+  }
+}

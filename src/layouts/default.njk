@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="{{ seo.lang or 'id' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or seo.defaultTitle }}</title>
+  <meta name="description" content="{{ description or seo.defaultDescription }}">
+  <meta name="robots" content="{{ robots or seo.robots }}">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ title or seo.defaultTitle }}">
+  <meta property="og:description" content="{{ description or seo.defaultDescription }}">
+  <meta property="og:type" content="{{ ogType or seo.openGraph.type }}">
+  <meta property="og:url" content="{{ pageUrl }}">
+  <meta property="og:image" content="{{ ogImage or seo.openGraph.defaultImage }}">
+  <meta property="og:site_name" content="{{ seo.openGraph.siteName }}">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="{{ seo.twitter.card }}">
+  <meta name="twitter:site" content="{{ seo.twitter.site }}">
+  <meta name="twitter:creator" content="{{ seo.twitter.creator }}">
+  
+  <!-- Preloads -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <!-- Global Tracking Configurations -->
+  <script>
+    window.ARSAR_TRACKING_CONFIG = {{ tracking | dump | safe }};
+  </script>
+  
+  <!-- Schema JSON-LD Injection -->
+  {% if schemaJson %}
+  <script type="application/ld+json">
+    {{ schemaJson | safe }}
+  </script>
+  {% endif %}
+  
+  {% block head %}{% endblock %}
+</head>
+<body class="bg-[#0b0f19] text-gray-100 font-sans min-h-screen flex flex-col antialiased">
+  
+  <!-- Header / Navigation -->
+  {% block navbar %}
+    <!-- Placeholder Navbar -->
+    <div class="p-4 bg-gray-900 text-center border-b border-gray-800">Navbar Placeholder</div>
+  {% endblock %}
+  
+  <!-- Page Content -->
+  <main class="flex-grow">
+    {% block content %}{% endblock %}
+  </main>
+  
+  <!-- Footer -->
+  {% block footer %}
+    <!-- Placeholder Footer -->
+    <footer class="p-4 bg-gray-900 text-center border-t border-gray-800">Footer Placeholder</footer>
+  {% endblock %}
+  
+  <!-- Main JavaScript App -->
+  <script type="module" src="/assets/js/app.js"></script>
+  
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "Arsar Digital",
+  "legalName": "PT Arsar Digital Indonesia",
+  "tagline": "AI-Powered Marketing Agency & Software Development",
+  "email": "hello@arsardigital.com",
+  "phone": "+6281234567890",
+  "whatsapp": "+6281234567890",
+  "address": {
+    "streetAddress": "Jl. Sunset Road No. 88, Seminyak",
+    "addressLocality": "Badung",
+    "addressRegion": "Bali",
+    "postalCode": "80361",
+    "addressCountry": "ID"
+  },
+  "socials": {
+    "facebook": "https://facebook.com/arsardigital",
+    "instagram": "https://instagram.com/arsardigital",
+    "twitter": "https://twitter.com/arsardigital",
+    "linkedin": "https://linkedin.com/company/arsardigital",
+    "youtube": "https://youtube.com/@arsardigital"
+  },
+  "website": "https://arsardigital.com",
+  "logo": "https://arsardigital.com/assets/images/logo.png"
+}

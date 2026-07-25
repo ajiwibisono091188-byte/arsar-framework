@@ -1,0 +1,46 @@
+{% extends "layouts/default.njk" %}
+
+{% block navbar %}
+  {% include "components/Navbar/Navbar.njk" %}
+{% endblock %}
+
+{% block content %}
+  <article class="py-20 px-4 max-w-4xl mx-auto" itemscope itemtype="https://schema.org/NewsArticle">
+    <!-- Breadcrumb -->
+    <div class="mb-8">
+      {% include "components/Breadcrumb/Breadcrumb.njk" %}
+    </div>
+
+    <!-- Header -->
+    <header class="mb-12">
+      <h1 class="text-3xl md:text-5xl font-heading font-extrabold mb-4" itemprop="headline">{{ article.title }}</h1>
+      <div class="flex items-center text-sm text-gray-400 gap-4">
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+          Oleh: <span itemprop="name">{{ article.author or company.name }}</span>
+        </span>
+        <time datetime="{{ article.datePublished }}" itemprop="datePublished">
+          {{ article.dateFormatted }}
+        </time>
+      </div>
+    </header>
+
+    <!-- Cover Image -->
+    {% if article.image %}
+    <div class="mb-12 rounded-xl overflow-hidden shadow-lg aspect-video">
+      <img src="{{ article.image }}" alt="{{ article.title }}" class="w-full h-full object-cover" itemprop="image">
+    </div>
+    {% endif %}
+
+    <!-- Article Content -->
+    <div class="prose prose-invert max-w-none mb-16" itemprop="articleBody">
+      {% block article_body %}{% endblock %}
+    </div>
+
+    <!-- Sticky CTA bottom / floating WhatsApp -->
+    {% include "components/StickyCTA/StickyCTA.njk" %}
+  </article>
+{% endblock %}
+
+{% block footer %}
+  {% include "components/Footer/Footer.njk" %}
+{% endblock %}

@@ -1,0 +1,65 @@
+<!-- Footer Component -->
+<footer class="bg-gray-950 border-t border-white/5 py-16 px-4">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <!-- Company Profile -->
+    <div>
+      <a href="/" class="flex items-center gap-2 font-heading font-bold text-xl text-white mb-6">
+        <span class="p-2 bg-indigo-600 rounded-lg text-white font-black">A</span>
+        <span>ARSAR</span>
+      </a>
+      <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+        {{ company.tagline }}
+      </p>
+      <!-- Socials -->
+      <div class="flex gap-4">
+        {% for name, url in company.socials %}
+          <a href="{{ url }}" class="p-2 bg-white/5 hover:bg-indigo-600 rounded-lg text-gray-400 hover:text-white transition-colors duration-200" aria-label="{{ name }}">
+            <span class="capitalize text-xs font-semibold">{{ name }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-6">Pintasan</h3>
+      <ul class="flex flex-col gap-3">
+        {% for item in navigation.footer.quickLinks %}
+          <li>
+            <a href="{{ item.path }}" class="text-sm text-gray-400 hover:text-white transition-colors">{{ item.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div>
+      <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-6">Layanan Kami</h3>
+      <ul class="flex flex-col gap-3">
+        {% for item in navigation.footer.services %}
+          <li>
+            <a href="{{ item.path }}" class="text-sm text-gray-400 hover:text-white transition-colors">{{ item.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-6">Hubungi Kami</h3>
+      <p class="text-sm text-gray-400 mb-2">{{ company.address.streetAddress }}, {{ company.address.addressLocality }}</p>
+      <p class="text-sm text-gray-400 mb-4">{{ company.address.addressRegion }}, {{ company.address.postalCode }}</p>
+      <p class="text-sm text-gray-400 mb-2">WhatsApp: <a href="tel:{{ company.whatsapp }}" class="hover:text-indigo-400">{{ company.whatsapp }}</a></p>
+      <p class="text-sm text-gray-400">Email: <a href="mailto:{{ company.email }}" class="hover:text-indigo-400">{{ company.email }}</a></p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+    <p>&copy; {{ currentYear or '2026' }} {{ company.legalName }}. All rights reserved.</p>
+    <div class="flex gap-6">
+      {% for item in navigation.footer.legal %}
+        <a href="{{ item.path }}" class="hover:text-white transition-colors">{{ item.label }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</footer>

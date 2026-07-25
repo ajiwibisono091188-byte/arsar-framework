@@ -1,0 +1,23 @@
+{
+  "defaultTitle": "ARSAR AI MARKETING OS v2.0 - High Performance Static Web Framework",
+  "titleTemplate": "%s | Arsar Digital",
+  "defaultDescription": "Fondasi framework static website berbasis AI untuk marketing page dengan performa Lighthouse maksimal (Performance >=98, SEO 100).",
+  "charset": "UTF-8",
+  "robots": "index, follow",
+  "openGraph": {
+    "type": "website",
+    "locale": "id_ID",
+    "siteName": "Arsar Digital",
+    "defaultImage": "https://arsardigital.com/assets/images/og-default.jpg"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@arsardigital",
+    "creator": "@arsardigital"
+  },
+  "sitemap": {
+    "enabled": true,
+    "changefreq": "weekly",
+    "priority": 0.8
+  }
+}

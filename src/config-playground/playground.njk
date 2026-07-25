@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARSAR Config Engine Inspector</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body class="bg-[#0b0f19] text-gray-100 font-sans min-h-screen flex flex-col antialiased"
+      x-data="{ activeScope: 'site' }">
+
+  <!-- Header -->
+  <header class="h-20 border-b border-white/10 bg-gray-950 px-8 flex justify-between items-center shrink-0">
+    <div class="flex items-center gap-3">
+      <span class="p-2 bg-indigo-600 rounded-lg text-white font-black text-xs font-heading">CORE</span>
+      <div>
+        <h1 class="text-base font-bold text-white font-heading">ARSAR Config Engine</h1>
+        <p class="text-[10px] text-gray-400">Single Source of Truth Inspector</p>
+      </div>
+    </div>
+
+    <!-- Active Env / Project Info -->
+    <div class="flex items-center gap-3 text-xs">
+      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300">
+        <span class="text-gray-500">Project:</span>
+        <span class="font-bold text-indigo-400 uppercase">{{ projectActive }}</span>
+      </div>
+      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300">
+        <span class="text-gray-500">Env:</span>
+        <span class="font-bold text-emerald-400 uppercase">{{ envActive }}</span>
+      </div>
+      <span class="text-[10px] text-gray-500">Refreshed: {{ loadTimestamp }}</span>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="flex-grow flex overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-950/40 border-r border-white/10 flex flex-col p-4 shrink-0 overflow-y-auto">
+      <span class="px-3 py-2 text-[10px] uppercase font-bold text-gray-500 tracking-wider">Config Scopes</span>
+      <nav class="flex flex-col gap-1 mt-2">
+        {% set scopes = [
+          'site', 'company', 'theme', 'navigation', 'tracking',
+          'seo', 'ads', 'blog', 'landing', 'forms',
+          'crm', 'deployment', 'social', 'contact'
+        ] %}
+        {% for scope in scopes %}
+          <button @click="activeScope = '{{ scope }}'"
+                  :class="activeScope === '{{ scope }}' ? 'bg-indigo-600 text-white' : 'text-gray-400 hover:bg-white/5 hover:text-white'"
+                  class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold font-heading transition-all">
+            📄 {{ scope }}.json
+          </button>
+        {% endfor %}
+      </nav>
+    </aside>
+
+    <!-- Main Inspector Area -->
+    <main class="flex-grow p-8 overflow-y-auto flex flex-col gap-6">
+      <!-- Title -->
+      <div class="flex justify-between items-center border-b border-white/10 pb-4">
+        <div>
+          <h2 class="text-xl font-bold font-heading text-white" x-text="activeScope + '.json Configuration'"></h2>
+          <p class="text-xs text-gray-400">Rincian nilai parameter hasil penggabungan (merge) default & overrides.</p>
+        </div>
+      </div>
+
+      <!-- Scope Content -->
+      {% for scope in scopes %}
+        <div x-show="activeScope === '{{ scope }}'" class="flex flex-col gap-6 w-full" style="display: none;">
+          <!-- Key-value Details -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Properties table -->
+            <div class="flex flex-col gap-4">
+              <h3 class="text-xs font-bold uppercase text-indigo-400 tracking-wider">Properties & Keys</h3>
+              <div class="bg-gray-950 rounded-xl border border-white/10 overflow-hidden text-xs">
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="bg-white/5 border-b border-white/10 text-gray-400">
+                      <th class="p-3">Key</th>
+                      <th class="p-3">Resolved Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for key, val in config[scope] %}
+                      <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                        <td class="p-3 font-mono text-indigo-300 font-semibold">{{ key }}</td>
+                        <td class="p-3 text-gray-300">
+                          {% if val | string == '[object Object]' %}
+                            <span class="text-xs text-gray-500 italic">Nested Object (Lihat JSON)</span>
+                          {% else %}
+                            {{ val }}
+                          {% endif %}
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Raw JSON -->
+            <div class="flex flex-col gap-4">
+              <h3 class="text-xs font-bold uppercase text-indigo-400 tracking-wider">Raw Merged JSON</h3>
+              <pre class="bg-gray-950 p-6 rounded-xl border border-white/10 text-xs font-mono text-emerald-400 overflow-x-auto shadow-inner leading-relaxed"><code>{{ config[scope] | dump(2) }}</code></pre>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </main>
+  </div>
+
+  <script type="module" src="/assets/js/app.js"></script>
+</body>
+</html>

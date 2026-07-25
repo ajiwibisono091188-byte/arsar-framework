@@ -1,0 +1,22 @@
+<!-- StickyCTA Component -->
+<div x-data="{ showSticky: false }"
+     x-init="window.addEventListener('scroll', () => { showSticky = window.scrollY > 400 })"
+     x-show="showSticky"
+     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter-start="translate-y-full opacity-0"
+     x-transition:enter-end="translate-y-0 opacity-100"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="translate-y-0 opacity-100"
+     x-transition:leave-end="translate-y-full opacity-0"
+     class="fixed bottom-0 left-0 w-full z-40 bg-gray-950/90 backdrop-blur-md border-t border-white/10 p-4 md:hidden shadow-[0_-10px_20px_rgba(0,0,0,0.5)]"
+     style="display: none;">
+  <div class="flex items-center justify-between gap-4">
+    <div class="text-left">
+      <div class="text-xs text-indigo-400 font-semibold uppercase">Konsultasi AI OS</div>
+      <div class="text-xs text-gray-400">Gratis Selamanya</div>
+    </div>
+    <a href="https://wa.me/{{ company.whatsapp }}" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg shadow-lg flex items-center gap-1">
+      Chat WA
+    </a>
+  </div>
+</div>

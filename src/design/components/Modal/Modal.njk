@@ -1,0 +1,65 @@
+{% macro Modal(title, size="medium", id=null) %}
+  {% set sizeClass = "" %}
+  {% if size == "small" %}
+    {% set sizeClass = "max-w-sm w-full" %}
+  {% elif size == "large" %}
+    {% set sizeClass = "max-w-3xl w-full" %}
+  {% elif size == "fullscreen" %}
+    {% set sizeClass = "max-w-full w-full h-full rounded-none" %}
+  {% else %}
+    {% set sizeClass = "max-w-lg w-full" %}
+  {% endif %}
+
+  {% set wrapperId = id or "modal-" + range(1, 1000) | random %}
+
+  <div 
+    id="{{ wrapperId }}"
+    x-data="{ open: false }" 
+    @open-modal-{{ wrapperId }}.window="open = true" 
+    @keydown.escape.window="open = false"
+    x-show="open" 
+    class="fixed inset-0 z-[var(--zindex-modal)] overflow-y-auto" 
+    style="display: none;"
+    role="dialog"
+    aria-modal="true"
+  >
+    <!-- Backdrop Blur with Opacity Tokens -->
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-[var(--animation-duration-normal)]" 
+         x-show="open" 
+         x-transition:enter="ease-out"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="ease-in"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="open = false"></div>
+
+    <!-- Modal Content Center Alignment -->
+    <div class="flex min-h-full items-center justify-center p-4 text-center">
+      <div class="relative transform overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-dark-surface)] border border-[var(--color-dark-border)] p-[var(--spacing-lg)] text-left shadow-[var(--shadow-2xl)] transition-all duration-[var(--animation-duration-normal)] {{ sizeClass }}"
+           x-show="open"
+           x-transition:enter="ease-out"
+           x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+           x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+           x-transition:leave="ease-in"
+           x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+           x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-[var(--color-dark-border)] pb-4 mb-6">
+          <h3 class="text-[var(--font-size-h3)] font-heading font-bold text-white">{{ title }}</h3>
+          <button @click="open = false" class="text-gray-400 hover:text-white rounded-[var(--radius-sm)] p-1 hover:bg-white/5 transition-colors focus:outline-none" aria-label="Tutup Dialog">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Body content loaded via Nunjucks caller() -->
+        <div class="text-[var(--font-size-body)] text-gray-300 leading-relaxed">
+          {{ caller() }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro %}

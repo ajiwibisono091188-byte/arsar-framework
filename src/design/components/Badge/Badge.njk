@@ -1,0 +1,24 @@
+{% macro Badge(label, variant="primary", customClass="") %}
+  <!-- Base styling using spacing, radius and typography tokens -->
+  {% set baseStyle = "inline-flex items-center px-2.5 py-1 text-[var(--font-size-caption)] font-bold uppercase tracking-wider rounded-[var(--radius-sm)] select-none border" %}
+  
+  <!-- Variant styling using colors tokens -->
+  {% set variantStyle = "" %}
+  {% if variant == "primary" %}
+    {% set variantStyle = "bg-[var(--color-primary-600)]/10 text-[var(--color-primary-400)] border-[var(--color-primary-600)]/20" %}
+  {% elif variant == "secondary" %}
+    {% set variantStyle = "bg-[var(--color-secondary-600)]/10 text-[var(--color-secondary-400)] border-[var(--color-secondary-600)]/20" %}
+  {% elif variant == "outline" %}
+    {% set variantStyle = "bg-transparent text-gray-300 border-gray-600" %}
+  {% elif variant == "success" %}
+    {% set variantStyle = "bg-[var(--color-success-bg)] text-[var(--color-success-text)] border-[var(--color-success-border)]" %}
+  {% elif variant == "danger" %}
+    {% set variantStyle = "bg-[var(--color-danger-bg)] text-[var(--color-danger-text)] border-[var(--color-danger-border)]" %}
+  {% elif variant == "warning" %}
+    {% set variantStyle = "bg-[var(--color-warning-bg)] text-[var(--color-warning-text)] border-[var(--color-warning-border)]" %}
+  {% endif %}
+
+  <span class="{{ baseStyle }} {{ variantStyle }} {{ customClass }}">
+    {{ label }}
+  </span>
+{% endmacro %}

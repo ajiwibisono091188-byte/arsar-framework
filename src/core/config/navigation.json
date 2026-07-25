@@ -1,0 +1,13 @@
+{
+  "header": [
+    { "label": "Beranda", "path": "/" },
+    { "label": "Layanan", "path": "/services" },
+    { "label": "Artikel", "path": "/blog" },
+    { "label": "Hubungi Kami", "path": "/contact" }
+  ],
+  "footer": [
+    { "label": "Tentang Kami", "path": "/about" },
+    { "label": "Layanan Kami", "path": "/services" },
+    { "label": "Hubungi Kami", "path": "/contact" }
+  ]
+}

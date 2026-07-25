@@ -1,0 +1,57 @@
+{% macro Typography(text, variant="body", element=null, weight="normal", customClass="", customStyle="") %}
+  <!-- Determine semantic HTML tag based on variant if element is not overridden -->
+  {% set tag = element %}
+  {% if not tag %}
+    {% if variant == "displayXl" or variant == "displayLg" or variant == "displayMd" or variant == "h1" %}
+      {% set tag = "h1" %}
+    {% elif variant == "h2" %}
+      {% set tag = "h2" %}
+    {% elif variant == "h3" %}
+      {% set tag = "h3" %}
+    {% elif variant == "h4" %}
+      {% set tag = "h4" %}
+    {% elif variant == "h5" %}
+      {% set tag = "h5" %}
+    {% elif variant == "caption" %}
+      {% set tag = "span" %}
+    {% else %}
+      {% set tag = "p" %}
+    {% endif %}
+  {% endif %}
+
+  <!-- Size classes mapped to typography token variables -->
+  {% set sizeClass = "" %}
+  {% if variant == "displayXl" %}
+    {% set sizeClass = "text-[var(--font-size-displayXl)] line-height-[var(--line-height-displayXl)] font-heading" %}
+  {% elif variant == "displayLg" %}
+    {% set sizeClass = "text-[var(--font-size-displayLg)] line-height-[var(--line-height-displayLg)] font-heading" %}
+  {% elif variant == "displayMd" %}
+    {% set sizeClass = "text-[var(--font-size-displayMd)] line-height-[var(--line-height-displayMd)] font-heading" %}
+  {% elif variant == "h1" %}
+    {% set sizeClass = "text-[var(--font-size-h1)] line-height-[var(--line-height-h1)] font-heading" %}
+  {% elif variant == "h2" %}
+    {% set sizeClass = "text-[var(--font-size-h2)] line-height-[var(--line-height-h2)] font-heading" %}
+  {% elif variant == "h3" %}
+    {% set sizeClass = "text-[var(--font-size-h3)] line-height-[var(--line-height-h3)] font-heading" %}
+  {% elif variant == "h4" %}
+    {% set sizeClass = "text-[var(--font-size-h4)] line-height-[var(--line-height-h4)] font-heading" %}
+  {% elif variant == "h5" %}
+    {% set sizeClass = "text-[var(--font-size-h5)] line-height-[var(--line-height-h5)] font-heading" %}
+  {% elif variant == "small" %}
+    {% set sizeClass = "text-[var(--font-size-small)] line-height-[var(--line-height-small)] font-sans" %}
+  {% elif variant == "caption" %}
+    {% set sizeClass = "text-[var(--font-size-caption)] line-height-[var(--line-height-caption)] font-sans" %}
+  {% else %}
+    {% set sizeClass = "text-[var(--font-size-body)] line-height-[var(--line-height-body)] font-sans" %}
+  {% endif %}
+
+  <!-- Weight mapping based on tokens -->
+  {% set weightClass = "font-" + weight %}
+
+  <{{ tag }} 
+    class="{{ sizeClass }} {{ weightClass }} {{ customClass }}" 
+    {% if customStyle %}style="{{ customStyle }}"{% endif %}
+  >
+    {{ text | safe }}
+  </{{ tag }}>
+{% endmacro %}

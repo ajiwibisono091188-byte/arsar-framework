@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sports-sedan-01",
+    "name": "Arsar Phantom GT",
+    "type": "Sedan",
+    "engine": "Electric Dual-Motor",
+    "price": 850000000,
+    "image": "/assets/images/vehicles/phantom-gt.jpg",
+    "features": [
+      "Autopilot v2.0 Enabled",
+      "0-100 km/h in 2.9 seconds",
+      "600km Range per Charge",
+      "Panoramic Glass Roof"
+    ]
+  },
+  {
+    "id": "suv-adventure-02",
+    "name": "Arsar Everest Trail",
+    "type": "SUV",
+    "engine": "Hybrid Turbo 2.0L",
+    "price": 720000000,
+    "image": "/assets/images/vehicles/everest-trail.jpg",
+    "features": [
+      "All-Wheel Drive (AWD)",
+      "7-Seater Premium Leather",
+      "Advanced Terrain Response",
+      "12.3-inch Infotainment screen"
+    ]
+  }
+]

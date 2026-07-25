@@ -1,0 +1,6 @@
+{
+  "integrationEnabled": false,
+  "crmName": "HubSpot",
+  "webhookUrl": "https://hooks.hubspot.com/xxxxxxxx",
+  "leadSource": "arsar_static_landing"
+}

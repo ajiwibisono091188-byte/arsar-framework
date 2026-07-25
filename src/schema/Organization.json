@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ company.name }}",
+  "legalName": "{{ company.legalName }}",
+  "url": "{{ company.website }}",
+  "logo": "{{ company.logo }}",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "{{ company.phone }}",
+    "contactType": "customer service",
+    "areaServed": "ID",
+    "availableLanguage": ["Indonesian", "English"]
+  },
+  "sameAs": [
+    "{{ company.socials.facebook }}",
+    "{{ company.socials.instagram }}",
+    "{{ company.socials.twitter }}",
+    "{{ company.socials.linkedin }}",
+    "{{ company.socials.youtube }}"
+  ]
+}

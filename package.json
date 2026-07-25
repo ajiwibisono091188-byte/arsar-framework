@@ -1,0 +1,43 @@
+{
+  "name": "arsar-framework",
+  "version": "2.0.0",
+  "description": "ARSAR AI Marketing OS v2.0 Foundation Framework",
+  "type": "module",
+  "main": "src/assets/js/app.js",
+  "scripts": {
+    "generate": "node src/generator/landing-generator.js && node src/generator/blog-generator.js && node src/playground/playground-generator.js && node src/config-playground/playground-generator.js",
+    "dev": "npm run generate && vite",
+    "build": "npm run generate && vite build",
+    "preview": "vite preview",
+    "lint": "eslint \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.{js,css,json,njk,md}\""
+  },
+  "keywords": [
+    "marketing",
+    "os",
+    "framework",
+    "static-site-generator",
+    "vite",
+    "tailwindcss",
+    "alpinejs",
+    "nunjucks",
+    "ai"
+  ],
+  "author": "Arsar Digital",
+  "license": "MIT",
+  "dependencies": {
+    "alpinejs": "^3.14.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0-alpha.31",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.19.0",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "nunjucks": "^3.2.4",
+    "postcss": "^8.5.1",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^4.0.0-alpha.31",
+    "vite": "^6.0.11"
+  }
+}

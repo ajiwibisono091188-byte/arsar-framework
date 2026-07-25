@@ -1,0 +1,17 @@
+{
+  "property": {
+    "none": "none",
+    "all": "all",
+    "colors": "color, background-color, border-color, text-decoration-color, fill, stroke",
+    "opacity": "opacity",
+    "shadow": "box-shadow",
+    "transform": "transform"
+  },
+  "timing": {
+    "linear": "linear",
+    "in": "cubic-bezier(0.4, 0, 1, 1)",
+    "out": "cubic-bezier(0, 0, 0.2, 1)",
+    "inOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "premium": "cubic-bezier(0.16, 1, 0.3, 1)"
+  }
+}

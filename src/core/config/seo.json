@@ -1,0 +1,11 @@
+{
+  "defaultTitle": "ARSAR Default Title",
+  "titleTemplate": "%s | Arsar",
+  "defaultDescription": "ARSAR default meta description.",
+  "robots": "index, follow",
+  "charset": "UTF-8",
+  "openGraph": {
+    "type": "website",
+    "locale": "id_ID"
+  }
+}

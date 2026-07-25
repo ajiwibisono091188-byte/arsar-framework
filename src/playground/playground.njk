@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARSAR Design System Playground</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <!-- Global tracking mock config for playground stability -->
+  <script>
+    window.ARSAR_TRACKING_CONFIG = { googleAnalytics: { enabled: false }, facebookPixel: { enabled: false } };
+  </script>
+</head>
+<body class="bg-[#0b0f19] text-gray-100 font-sans min-h-screen flex antialiased" 
+      x-data="{ activeTab: 'buttons', viewport: 'desktop' }">
+
+  <!-- Sidebar Navigation -->
+  <aside class="w-64 bg-gray-950 border-r border-white/10 flex flex-col shrink-0 min-h-screen">
+    <div class="p-6 border-b border-white/10 flex flex-col gap-1">
+      <div class="flex items-center gap-2 font-heading font-bold text-lg text-white">
+        <span class="p-1.5 bg-indigo-600 rounded text-white font-black text-xs">DS</span>
+        <span>ARSAR System</span>
+      </div>
+      <span class="text-[10px] text-indigo-400 uppercase tracking-widest font-bold">Sprint 2A Playground</span>
+    </div>
+
+    <nav class="flex-grow p-4 flex flex-col gap-1 overflow-y-auto">
+      <span class="px-3 py-2 text-[10px] uppercase font-bold text-gray-500 tracking-wider">Design Tokens</span>
+      <button @click="activeTab = 'tokens'" :class="activeTab === 'tokens' ? 'bg-indigo-600 text-white' : 'text-gray-400 hover:bg-white/5 hover:text-white'" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold transition-all">
+        🎨 Token Inspector
+      </button>
+
+      <span class="px-3 py-2 mt-4 text-[10px] uppercase font-bold text-gray-500 tracking-wider">Komponen</span>
+      {% set navItems = [
+        { id: 'buttons', label: 'Button System' },
+        { id: 'cards', label: 'Card Component' },
+        { id: 'inputs', label: 'Input Component' },
+        { id: 'typography', label: 'Typography Elements' },
+        { id: 'badges', label: 'Badges' },
+        { id: 'alerts', label: 'Alert Banners' },
+        { id: 'modals', label: 'Modal Dialogs' },
+        { id: 'loading', label: 'Loading Indicators' },
+        { id: 'iconwrappers', label: 'Icon Wrappers' }
+      ] %}
+      
+      {% for item in navItems %}
+        <button @click="activeTab = '{{ item.id }}'" 
+                :class="activeTab === '{{ item.id }}' ? 'bg-indigo-600 text-white' : 'text-gray-400 hover:bg-white/5 hover:text-white'" 
+                class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold transition-all">
+          {{ item.label }}
+        </button>
+      {% endfor %}
+    </nav>
+  </aside>
+
+  <!-- Main Content Panel -->
+  <main class="flex-grow flex flex-col min-h-screen overflow-hidden">
+    <!-- Viewport simulator bar -->
+    <header class="h-16 border-b border-white/10 bg-gray-950/50 backdrop-blur-md px-8 flex justify-between items-center shrink-0">
+      <h2 class="text-sm font-semibold capitalize font-heading" x-text="activeTab + ' component'"></h2>
+      
+      <div class="flex items-center gap-1.5 bg-white/5 p-1 rounded-lg border border-white/10">
+        <button @click="viewport = 'desktop'" :class="viewport === 'desktop' ? 'bg-indigo-600 text-white' : 'text-gray-400'" class="px-3 py-1 rounded text-xs font-bold transition-all">Desktop</button>
+        <button @click="viewport = 'tablet'" :class="viewport === 'tablet' ? 'bg-indigo-600 text-white' : 'text-gray-400'" class="px-3 py-1 rounded text-xs font-bold transition-all">Tablet (768px)</button>
+        <button @click="viewport = 'mobile'" :class="viewport === 'mobile' ? 'bg-indigo-600 text-white' : 'text-gray-400'" class="px-3 py-1 rounded text-xs font-bold transition-all">Mobile (375px)</button>
+      </div>
+    </header>
+
+    <!-- Preview Container with Viewport simulator classes -->
+    <div class="flex-grow p-8 overflow-y-auto flex justify-center items-start bg-gray-900/40">
+      <div class="w-full transition-all duration-300 flex flex-col gap-8" 
+           :class="{ 'max-w-full': viewport === 'desktop', 'max-w-[768px] border-x border-white/10 bg-gray-900/80 p-6 rounded-xl': viewport === 'tablet', 'max-w-[375px] border-x border-white/10 bg-gray-900/80 p-4 rounded-xl': viewport === 'mobile' }">
+        
+        <!-- Imports macros -->
+        {% import "design/components/Button/Button.njk" as btn %}
+        {% import "design/components/Card/Card.njk" as crd %}
+        {% import "design/components/Input/Input.njk" as inp %}
+        {% import "design/components/Typography/Typography.njk" as typ %}
+        {% import "design/components/Badge/Badge.njk" as bdg %}
+        {% import "design/components/Alert/Alert.njk" as alr %}
+        {% import "design/components/Modal/Modal.njk" as mdl %}
+        {% import "design/components/Loading/Loading.njk" as ld %}
+        {% import "design/components/IconWrapper/IconWrapper.njk" as wrp %}
+
+        <!-- Tab 1: BUTTONS -->
+        <div x-show="activeTab === 'buttons'" class="flex flex-col gap-6 w-full">
+          <h2 class="text-xl font-bold border-b border-white/5 pb-2 text-white font-heading">Buttons System</h2>
+          <div class="flex flex-wrap gap-4">
+            {{ btn.Button(label="Primary") }}
+            {{ btn.Button(label="Secondary", variant="secondary") }}
+            {{ btn.Button(label="Outline", variant="outline") }}
+            {{ btn.Button(label="Ghost", variant="ghost") }}
+            {{ btn.Button(label="Success", variant="success") }}
+            {{ btn.Button(label="Danger", variant="danger") }}
+            {{ btn.Button(label="Warning", variant="warning") }}
+          </div>
+          <div class="flex flex-wrap items-center gap-4 mt-4">
+            {{ btn.Button(label="Small Size", size="small") }}
+            {{ btn.Button(label="Medium Size") }}
+            {{ btn.Button(label="Large Size", size="large") }}
+          </div>
+          <div class="flex flex-wrap gap-4 mt-4">
+            {{ btn.Button(label="Disabled Primary", disabled=true) }}
+            {{ btn.Button(label="Loading State", loading=true) }}
+          </div>
+          <div class="mt-4">
+            {{ btn.Button(label="Full Width Button", fullWidth=true) }}
+          </div>
+        </div>
+
+        <!-- Tab 2: CARDS -->
+        <div x-show="activeTab === 'cards'" class="flex flex-col gap-6 w-full">
+          <h2 class="text-xl font-bold border-b border-white/5 pb-2 text-white font-heading">Cards Component</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Service Card -->
+            {{ crd.Card(variant="service", title="AI Marketing OS Integration", description="Optimalkan konversi iklan Anda dengan pemuatan halaman instan.", features=servicesSample) }}
+            <!-- Blog Card -->
+            {{ crd.Card(variant="blog", title="Rahasia Website Static Kecepatan Tinggi", description="Pelajari bagaimana static site generator menaikan skor performa Lighthouse.", author="Arsar Dev", category="Tutorial") }}
+            <!-- Pricing Card -->
+            {{ crd.Card(variant="pricing", title="Pro Plan", price="Rp 2.500.000", description="Cocok untuk pemilik bisnis UKM berkembang.", features=featuresSample) }}
+            <!-- Review Card -->
+            {{ crd.Card(variant="review", description="Konversi iklan kami naik drastis sejak pakai ARSAR AI OS. Sangat direkomendasikan!", rating=5, author="Dewi Lestari") }}
+            <!-- Feature Card -->
+            {{ crd.Card(variant="feature", title="100% SEO Ready", description="Schema.org otomatis untuk mempercepat crawling Google.") }}
+            <!-- Glass Card -->
+            {{ crd.Card(variant="glass", title="Glassmorphic Card", description="Tampilan elegan berlatar belakang kabur semi transparan.") }}
+          </div>
+        </div>
+
+        <!-- Tab 3: INPUTS -->
+        <div x-show="activeTab === 'inputs'" class="flex flex-col gap-6 w-full">
+          <h2 class="text-xl font-bold border-b border-white/5 pb-2 text-white font-heading">Inputs & Form Controls</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white/5 p-6 rounded-2xl border border-white/10">
+            {{ inp.Input(name="user", label="Nama Pengguna", placeholder="Masukkan nama...") }}
+            {{ inp.Input(name="email", label="Alamat Email", type="email", placeholder="nama@domain.com", required=true) }}
+            {{ inp.Input(name="phone", label="Nomor Handphone", type="phone", placeholder="0812...") }}
+            {{ inp.Input(name="number", label="Jumlah Anggaran", type="number", value="100000") }}
+            {{ inp.Input(name="desc", label="Catatan Tambahan", type="textarea", placeholder="Deskripsi...") }}
+            {{ inp.Input(name="service", label="Layanan Dipilih", type="select", placeholder="Pilih...", options=[{value: 'ai', label: 'AI OS'}, {value: 'seo', label: 'SEO Engine'}]) }}
+            {{ inp.Input(name="terms", label="Saya setuju dengan S&K berlaku", type="checkbox") }}
+            {{ inp.Input(name="gender", label="Pria", type="radio", value="m") }}
+            {{ inp.Input(name="gender", label="Wanita", type="radio", value="f") }}
+            {{ inp.Input(name="newsletter", label="Aktifkan Notifikasi Penawaran", type="toggle") }}
+            {{ inp.Input(name="err", label="Input dengan Error", error="Format penulisan email salah") }}
+          </div>
+        </div>
+
+        <!-- Tab 4: TYPOGRAPHY -->
+        <div x-show="activeTab === 'typography'" class="flex flex-col gap-4 w-full">
+          <h2 class="text-xl font-bold border-b border-white/5 pb-2 text-white font-heading">Typography Elements</h2>
+          <div class="flex flex-col gap-4 bg-white/5 p-6 rounded-2xl border border-white/10">
+            {{ typ.Typography(text="Display XL Text Heading", variant="displayXl", weight="extrabold") }}
+            {{ typ.Typography(text="Display LG Text Heading", variant="displayLg", weight="bold") }}
+            {{ typ.Typography(text="Display MD Text Heading", variant="displayMd", weight="semibold") }}
+            {{ typ.Typography(text="Heading 1 Title", variant="h1", weight="bold") }}
+            {{ typ.Typography(text="Heading 2 Title", variant="h2", weight="bold") }}
+            {{ typ.Typography(text="Heading 3 Title", variant="h3", weight="semibold") }}
+            {{ typ.Typography(text="Heading 4 Title", variant="h4", weight="medium") }}
+            {{ typ.Typography(text="Heading 5 Title", variant="h5") }}
+            {{ typ.Typography(text="Body content paragraphs layout. Lorem ipsum dolor sit amet consectetur adipiscing elit.", variant="body") }}
+            {{ typ.Typography(text="Small text content description details.", variant="small") }}
+            {{ typ.Typography(text="Caption footer or metadata label.", variant="caption") }}
+          </div>
+        </div>
+
+        <!-- Tab 5: BADGES -->
+        <div x-show="activeTab === 'badges'" class="flex flex-col gap-6 w-full">
+          <h2 class="text-xl font-bold border-b border-white/5 pb-2 text-white font-heading">Badges</h2>
+          <div class="flex flex-wrap gap-4">
+            {{ bdg.Badge(label="Primary") }}
+            {{ bdg.Badge(label="Secondary", variant="secondary") }}
+            {{ bdg.Badge(label="Outline", variant="outline") }}
+            {{ bdg.Badge(label="Success", variant="success") }}
+            {{ bdg.Badge(label="Danger", variant="danger") }}
+            {{ bdg.Badge(label="Warning", variant="warning") }}
+          </div>
+        </div>
+
+        <!-- Tab 6: ALERTS -->
+        <div x-show="activeTab === 'alerts'" class="flex flex-col gap-6 w-full">
+          <h2 class="text-xl font-bold border-b border-white/5 pb-2 text-white font-heading">Alert Banners</h2>
+          <div class="flex flex-col gap-4">
+            {{ alr.Alert(message="<b>Informasi</b>: Pemeliharaan sistem dijadwalkan besok pagi.") }}
+            {{ alr.Alert(message="<b>Berhasil</b>: Pengaturan profil Anda telah tersimpan.", variant="success") }}
+            {{ alr.Alert(message="<b>Peringatan</b>: Kuota server iklan Anda hampir habis.", variant="warning") }}
+            {{ alr.Alert(message="<b>Kesalahan</b>: Gagal mengirimkan pesan. Cek koneksi internet.", variant="danger") }}
+          </div>
+        </div>
+
+        <!-- Tab 7: MODALS -->
+        <div x-show="activeTab === 'modals'" class="flex flex-col gap-6 w-full">
+          <h2 class="text-xl font-bold border-b border-white/5 pb-2 text-white font-heading">Modal Dialogs</h2>
+          <div class="flex gap-4">
+            <button @click="$dispatch('open-modal-modal-sm')" class="px-5 py-2.5 bg-indigo-600 rounded-lg text-xs font-bold text-white shadow-lg">Buka Small Modal</button>
+            <button @click="$dispatch('open-modal-modal-md')" class="px-5 py-2.5 bg-indigo-600 rounded-lg text-xs font-bold text-white shadow-lg">Buka Medium Modal</button>
+            <button @click="$dispatch('open-modal-modal-lg')" class="px-5 py-2.5 bg-indigo-600 rounded-lg text-xs font-bold text-white shadow-lg">Buka Large Modal</button>
+            <button @click="$dispatch('open-modal-modal-fs')" class="px-5 py-2.5 bg-indigo-600 rounded-lg text-xs font-bold text-white shadow-lg">Buka Fullscreen Modal</button>
+          </div>
+
+          <!-- Modals Definitions -->
+          {% call mdl.Modal(title="Small Dialog Box", size="small", id="modal-sm") %}
+            <p class="mb-4">Apakah Anda yakin ingin menghapus data campaign ini?</p>
+            <div class="flex justify-end gap-2">
+              <button @click="open = false" class="px-4 py-2 bg-gray-800 text-white text-xs rounded">Batal</button>
+              <button @click="open = false" class="px-4 py-2 bg-red-600 text-white text-xs rounded">Hapus</button>
+            </div>
+          {% endcall %}
+
+          {% call mdl.Modal(title="Standard Medium Dialog", size="medium", id="modal-md") %}
+            <p class="mb-4">Rincian formulir pengajuan integrasi AI Marketing OS untuk perusahaan Anda:</p>
+            {{ inp.Input(name="modal_email", label="Alamat Email", type="email", placeholder="email@modal.com") }}
+            <div class="mt-6 flex justify-end gap-2">
+              <button @click="open = false" class="px-4 py-2 bg-indigo-600 text-white text-xs rounded-lg w-full">Kirim Rincian</button>
+            </div>
+          {% endcall %}
+
+          {% call mdl.Modal(title="Large Documentation View", size="large", id="modal-lg") %}
+            <h4 class="text-sm font-bold text-white mb-2">Panduan Integrasi</h4>
+            <p class="mb-4 text-sm text-gray-400">Salin skrip generator dan jalankan perintah npm run build pada folder root proyek Anda. Data-data dinamis dari cities.json dan services.json akan dirender secara instan ke dalam sub-folder pages/.</p>
+            <div class="flex justify-end">
+              <button @click="open = false" class="px-4 py-2 bg-gray-800 text-white text-xs rounded-lg">Tutup Panduan</button>
+            </div>
+          {% endcall %}
+
+          {% call mdl.Modal(title="Fullscreen Overlay Panel", size="fullscreen", id="modal-fs") %}
+            <div class="flex flex-col justify-center items-center h-[60vh] gap-4">
+              <h2 class="text-3xl font-bold text-white font-heading">Menu Pemasaran AI OS</h2>
+              <p class="text-gray-400">Pilih salah satu dashboard kampanye di bawah:</p>
+              <div class="flex gap-4">
+                <button @click="open = false" class="px-6 py-3 bg-indigo-600 text-white rounded-lg">Google Ads</button>
+                <button @click="open = false" class="px-6 py-3 bg-indigo-600 text-white rounded-lg">Facebook Ads</button>
+              </div>
+            </div>
+          {% endcall %}
+        </div>
+
+        <!-- Tab 8: LOADING -->
+        <div x-show="activeTab === 'loading'" class="flex flex-col gap-6 w-full">
+          <h2 class="text-xl font-bold border-b border-white/5 pb-2 text-white font-heading">Loading Indicators</h2>
+          <div class="flex flex-col gap-6 bg-white/5 p-6 rounded-2xl border border-white/10">
+            <!-- Spinner -->
+            <div class="flex items-center gap-4">
+              <span class="text-xs text-gray-400 w-24">Spinner:</span>
+              {{ ld.Loading(variant="spinner", size="small") }}
+              {{ ld.Loading(variant="spinner") }}
+              {{ ld.Loading(variant="spinner", size="large") }}
+            </div>
+            <!-- Dots -->
+            <div class="flex items-center gap-4">
+              <span class="text-xs text-gray-400 w-24">Dots bounce:</span>
+              {{ ld.Loading(variant="dots") }}
+            </div>
+            <!-- Skeleton -->
+            <div class="flex flex-col gap-2">
+              <span class="text-xs text-gray-400">Skeleton pulse:</span>
+              {{ ld.Loading(variant="skeleton") }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 9: ICON WRAPPERS -->
+        <div x-show="activeTab === 'iconwrappers'" class="flex flex-col gap-6 w-full">
+          <h2 class="text-xl font-bold border-b border-white/5 pb-2 text-white font-heading">Icon Wrappers</h2>
+          <div class="flex gap-6 bg-white/5 p-6 rounded-2xl border border-white/10 items-center">
+            <!-- Square wrapper -->
+            <div class="flex flex-col items-center gap-2">
+              {% call wrp.IconWrapper(variant="square", size="large") %}
+                ⚡
+              {% endcall %}
+              <span class="text-[10px] text-gray-500">Square Large</span>
+            </div>
+
+            <!-- Circle wrapper -->
+            <div class="flex flex-col items-center gap-2">
+              {% call wrp.IconWrapper(variant="circle", size="medium") %}
+                ℹ
+              {% endcall %}
+              <span class="text-[10px] text-gray-500">Circle Medium</span>
+            </div>
+
+            <!-- Glass wrapper -->
+            <div class="flex flex-col items-center gap-2">
+              {% call wrp.IconWrapper(variant="glass", size="small") %}
+                ✓
+              {% endcall %}
+              <span class="text-[10px] text-gray-500">Glass Small</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 10: TOKENS -->
+        <div x-show="activeTab === 'tokens'" class="flex flex-col gap-6 w-full">
+          <h2 class="text-xl font-bold border-b border-white/5 pb-2 text-white font-heading">Token Inspector</h2>
+          
+          <!-- Colors token list -->
+          <div class="flex flex-col gap-4">
+            <h3 class="text-sm font-semibold uppercase text-indigo-400 tracking-wider">Colors Palette</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+              <!-- Colors samples loop from JSON -->
+              {% for shade, hex in theme.colors.primary %}
+                <div class="flex flex-col rounded-lg overflow-hidden border border-white/10">
+                  <div class="h-16" style="background-color: {{ hex }};"></div>
+                  <div class="p-3 bg-gray-950 flex flex-col text-[10px]">
+                    <span class="font-bold text-white">primary-{{ shade }}</span>
+                    <span class="text-gray-500">{{ hex }}</span>
+                  </div>
+                </div>
+              {% endfor %}
+              
+              {% for shade, hex in theme.colors.secondary %}
+                <div class="flex flex-col rounded-lg overflow-hidden border border-white/10">
+                  <div class="h-16" style="background-color: {{ hex }};"></div>
+                  <div class="p-3 bg-gray-950 flex flex-col text-[10px]">
+                    <span class="font-bold text-white">secondary-{{ shade }}</span>
+                    <span class="text-gray-500">{{ hex }}</span>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          
+          <!-- Radii & Spacing lists -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+            <div>
+              <h3 class="text-sm font-semibold uppercase text-indigo-400 tracking-wider mb-4">Border Radii</h3>
+              <div class="bg-gray-950 p-4 rounded-xl border border-white/10 flex flex-col gap-2.5">
+                {% for key, val in theme.radius %}
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-400 font-mono">--radius-{{ key }}</span>
+                    <span class="text-white font-bold">{{ val }}</span>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-semibold uppercase text-indigo-400 tracking-wider mb-4">Layout Spacings</h3>
+              <div class="bg-gray-950 p-4 rounded-xl border border-white/10 flex flex-col gap-2.5">
+                {% for key, val in theme.spacing %}
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-400 font-mono">--spacing-{{ key }}</span>
+                    <span class="text-white font-bold">{{ val }}</span>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/assets/js/app.js"></script>
+</body>
+</html>

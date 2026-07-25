@@ -1,0 +1,15 @@
+{% extends "layouts/default.njk" %}
+
+{% block navbar %}
+  {% include "components/Navbar/Navbar.njk" %}
+{% endblock %}
+
+{% block content %}
+  <div class="service-page-wrapper">
+    {% block service_content %}{% endblock %}
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "components/Footer/Footer.njk" %}
+{% endblock %}

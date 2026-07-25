@@ -1,0 +1,48 @@
+{% macro Alert(message, variant="info", dismissible=true, id=null, customClass="") %}
+  <!-- Base alert styling -->
+  {% set baseStyle = "flex items-start justify-between gap-4 p-4 rounded-[var(--radius-lg)] border text-[var(--font-size-small)] transition-all duration-[var(--animation-duration-normal)]" %}
+
+  <!-- Variant styling using colors tokens -->
+  {% set variantStyle = "" %}
+  {% if variant == "success" %}
+    {% set variantStyle = "bg-[var(--color-success-bg)] text-[var(--color-success-text)] border-[var(--color-success-border)]" %}
+  {% elif variant == "danger" %}
+    {% set variantStyle = "bg-[var(--color-danger-bg)] text-[var(--color-danger-text)] border-[var(--color-danger-border)]" %}
+  {% elif variant == "warning" %}
+    {% set variantStyle = "bg-[var(--color-warning-bg)] text-[var(--color-warning-text)] border-[var(--color-warning-border)]" %}
+  {% else %}
+    {% set variantStyle = "bg-[var(--color-info-bg)] text-[var(--color-info-text)] border-[var(--color-info-border)]" %}
+  {% endif %}
+
+  <div 
+    {% if id %}id="{{ id }}"{% endif %}
+    x-data="{ show: true }" 
+    x-show="show" 
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 scale-100"
+    x-transition:leave-end="opacity-0 scale-95"
+    class="{{ baseStyle }} {{ variantStyle }} {{ customClass }}"
+    style="display: flex;"
+    role="alert"
+  >
+    <div class="flex items-center gap-3">
+      <!-- Icon placeholder based on variant -->
+      <span class="shrink-0 flex items-center justify-center font-black">
+        {% if variant == "success" %}✓
+        {% elif variant == "danger" %}⚠
+        {% elif variant == "warning" %}⚡
+        {% else %}ℹ
+        {% endif %}
+      </span>
+      <span>{{ message | safe }}</span>
+    </div>
+
+    {% if dismissible %}
+      <button @click="show = false" class="text-current hover:opacity-75 focus:outline-none p-1 rounded hover:bg-white/10" aria-label="Tutup Alert">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    {% endif %}
+  </div>
+{% endmacro %}

@@ -1,0 +1,43 @@
+{
+  "themeName": "ARSAR Modern Dark",
+  "colors": {
+    "primary": {
+      "light": "#4F46E5",
+      "dark": "#6366F1"
+    },
+    "secondary": {
+      "light": "#10B981",
+      "dark": "#34D399"
+    },
+    "background": {
+      "light": "#F9FAFB",
+      "dark": "#0B0F19"
+    },
+    "surface": {
+      "light": "#FFFFFF",
+      "dark": "#151B2C"
+    },
+    "text": {
+      "light": "#111827",
+      "dark": "#F3F4F6"
+    },
+    "muted": {
+      "light": "#6B7280",
+      "dark": "#9CA3AF"
+    },
+    "accent": {
+      "light": "#F59E0B",
+      "dark": "#FBBF24"
+    }
+  },
+  "fonts": {
+    "sans": "Inter, system-ui, -apple-system, sans-serif",
+    "heading": "Outfit, sans-serif",
+    "mono": "JetBrains Mono, monospace"
+  },
+  "layout": {
+    "containerMaxWidth": "1280px",
+    "borderRadius": "12px",
+    "transitionSpeed": "0.3s"
+  }
+}

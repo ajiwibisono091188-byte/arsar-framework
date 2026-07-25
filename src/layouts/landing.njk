@@ -1,0 +1,17 @@
+{% extends "layouts/default.njk" %}
+
+{% block navbar %}
+  <!-- Landing Page Custom Navbar (Simplified to focus on CTA) -->
+  {% include "components/Navbar/Navbar.njk" %}
+{% endblock %}
+
+{% block content %}
+  <div class="landing-page-wrapper">
+    <!-- Blocks will be populated dynamically by the page generator -->
+    {% block landing_content %}{% endblock %}
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "components/Footer/Footer.njk" %}
+{% endblock %}

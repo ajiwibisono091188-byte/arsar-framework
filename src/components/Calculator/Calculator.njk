@@ -1,0 +1,76 @@
+<!-- Calculator Component -->
+<section class="py-20 px-4 max-w-4xl mx-auto scroll-animate" x-data="loanCalculator">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-white mb-4">Simulasi Angsuran</h2>
+    <p class="text-gray-400">Simulasikan rincian cicilan dan pembiayaan untuk produk atau layanan Anda secara instan.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12">
+    <!-- Sliders / Inputs -->
+    <div class="flex flex-col gap-6">
+      <!-- Principal Price -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-300 mb-2 flex justify-between">
+          <span>Harga Layanan/Produk</span>
+          <span class="text-indigo-400 font-mono" x-text="new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(principal)"></span>
+        </label>
+        <input type="range" min="10000000" max="1000000000" step="5000000" x-model.number="principal" class="w-full accent-indigo-600 cursor-pointer">
+      </div>
+
+      <!-- Down Payment -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-300 mb-2 flex justify-between">
+          <span>Uang Muka (DP %)</span>
+          <span class="text-indigo-400 font-mono" x-text="downPaymentPercent + '%'"></span>
+        </label>
+        <input type="range" min="10" max="80" step="5" x-model.number="downPaymentPercent" class="w-full accent-indigo-600 cursor-pointer">
+      </div>
+
+      <!-- Tenure -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-300 mb-2 flex justify-between">
+          <span>Tenor (Bulan)</span>
+          <span class="text-indigo-400 font-mono" x-text="tenure + ' Bulan'"></span>
+        </label>
+        <select x-model.number="tenure" class="w-full bg-gray-900 border border-white/10 text-white rounded-lg p-3 focus:outline-none focus:border-indigo-600">
+          <option value="12">12 Bulan (1 Tahun)</option>
+          <option value="24">24 Bulan (2 Tahun)</option>
+          <option value="36">36 Bulan (3 Tahun)</option>
+          <option value="48">48 Bulan (4 Tahun)</option>
+          <option value="60">60 Bulan (5 Tahun)</option>
+        </select>
+      </div>
+
+      <!-- Interest Rate -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-300 mb-2 flex justify-between">
+          <span>Bunga per Tahun (%)</span>
+          <span class="text-indigo-400 font-mono" x-text="interestRate + '%'"></span>
+        </label>
+        <input type="range" min="1" max="15" step="0.5" x-model.number="interestRate" class="w-full accent-indigo-600 cursor-pointer">
+      </div>
+    </div>
+
+    <!-- Output Rincian -->
+    <div class="flex flex-col justify-between border-t md:border-t-0 md:border-l border-white/10 pt-8 md:pt-0 md:pl-12">
+      <div class="flex flex-col gap-6">
+        <div>
+          <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Total Uang Muka (DP)</span>
+          <div class="text-2xl font-bold text-white font-mono mt-1" x-text="new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(downPayment)"></div>
+        </div>
+        <div>
+          <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Jumlah Pinjaman Pokok</span>
+          <div class="text-2xl font-bold text-white font-mono mt-1" x-text="new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(loanAmount)"></div>
+        </div>
+        <div>
+          <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Perkiraan Angsuran Bulanan</span>
+          <div class="text-4xl font-extrabold text-indigo-400 font-mono mt-1" x-text="new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(monthlyPayment)"></div>
+        </div>
+      </div>
+
+      <a href="/contact" class="w-full py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-center rounded-xl shadow-lg hover:shadow-indigo-500/25 transition-all duration-200 mt-8">
+        Ajukan Pembiayaan
+      </a>
+    </div>
+  </div>
+</section>

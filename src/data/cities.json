@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "jakarta",
+    "name": "Jakarta",
+    "region": "DKI Jakarta",
+    "keywords": ["AI marketing Jakarta", "agensi digital marketing Jakarta"]
+  },
+  {
+    "slug": "surabaya",
+    "name": "Surabaya",
+    "region": "Jawa Timur",
+    "keywords": ["AI marketing Surabaya", "agensi digital marketing Surabaya"]
+  },
+  {
+    "slug": "bandung",
+    "name": "Bandung",
+    "region": "Jawa Barat",
+    "keywords": ["AI marketing Bandung", "agensi digital marketing Bandung"]
+  },
+  {
+    "slug": "medan",
+    "name": "Medan",
+    "region": "Sumatera Utara",
+    "keywords": ["AI marketing Medan", "agensi digital marketing Medan"]
+  },
+  {
+    "slug": "makassar",
+    "name": "Makassar",
+    "region": "Sulawesi Selatan",
+    "keywords": ["AI marketing Makassar", "agensi digital marketing Makassar"]
+  }
+]

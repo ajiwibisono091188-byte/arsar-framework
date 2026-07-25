@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for item in breadcrumbs %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "name": "{{ item.name }}",
+      "item": "{{ item.url }}"
+    }{{ "," if not loop.last }}
+    {% endfor %}
+  ]
+}

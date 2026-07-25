@@ -1,0 +1,45 @@
+<!-- ContactForm Component -->
+<section class="py-20 px-4 max-w-5xl mx-auto scroll-animate">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <!-- Info -->
+    <div class="flex flex-col justify-center">
+      <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-white mb-6">Hubungi Tim Marketing Kami</h2>
+      <p class="text-gray-400 text-base leading-relaxed mb-8">
+        Butuh solusi spesifik yang disesuaikan dengan skala bisnis Anda? Kirimkan pesan, konsultan kami akan segera menghubungi dalam waktu 24 jam.
+      </p>
+      
+      <div class="flex flex-col gap-4 text-sm text-gray-300">
+        <div class="flex items-center gap-3">
+          <span class="p-2 bg-indigo-600/10 rounded-lg text-indigo-400 font-bold">A</span>
+          <span>{{ company.email }}</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="p-2 bg-indigo-600/10 rounded-lg text-indigo-400 font-bold">P</span>
+          <span>{{ company.phone }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form class="flex flex-col gap-6 bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10">
+      <div>
+        <label for="name" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Nama Lengkap</label>
+        <input type="text" id="name" name="name" required class="w-full form-input-custom" placeholder="Masukkan nama Anda">
+      </div>
+
+      <div>
+        <label for="email" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Alamat Email</label>
+        <input type="email" id="email" name="email" required class="w-full form-input-custom" placeholder="nama@email.com">
+      </div>
+
+      <div>
+        <label for="message" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Pesan Anda</label>
+        <textarea id="message" name="message" rows="4" required class="w-full form-input-custom" placeholder="Tulis deskripsi kebutuhan Anda..."></textarea>
+      </div>
+
+      <button type="submit" class="w-full py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl shadow-lg hover:shadow-indigo-500/25 transition-all duration-200">
+        Kirim Pesan
+      </button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Budi Santoso",
+    "position": "CEO, TechVenture Indonesia",
+    "avatar": "/assets/images/testimonials/avatar-budi.jpg",
+    "content": "Setelah memindahkan landing page kami ke framework ARSAR, bounce rate turun 40% dan conversion rate iklan Google Ads kami naik signifikan. Performa kecepatannya luar biasa!",
+    "rating": 5
+  },
+  {
+    "name": "Dewi Lestari",
+    "position": "Marketing Manager, BeautyCare Bali",
+    "avatar": "/assets/images/testimonials/avatar-dewi.jpg",
+    "content": "Kami membuat puluhan landing page target kota dalam waktu beberapa menit menggunakan generator bawaan. Solusi SEO lokal yang luar biasa hemat waktu.",
+    "rating": 5
+  }
+]

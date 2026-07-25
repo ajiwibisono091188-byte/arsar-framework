@@ -1,0 +1,7 @@
+{
+  "contactForm": {
+    "submitEndpoint": "https://api.arsardigital.com/contact",
+    "method": "POST",
+    "fields": ["name", "email", "message"]
+  }
+}

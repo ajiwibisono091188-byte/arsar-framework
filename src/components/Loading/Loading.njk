@@ -1,0 +1,18 @@
+<!-- Loading Component -->
+<div id="arsar-loading-screen" 
+     x-data="{ showLoading: true }"
+     x-init="window.addEventListener('load', () => { setTimeout(() => showLoading = false, 300) })"
+     x-show="showLoading"
+     x-transition:leave="transition ease-in duration-300"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0 pointer-events-none"
+     class="fixed inset-0 z-100 bg-[#0b0f19] flex flex-col items-center justify-center gap-4"
+     style="display: flex;">
+  <!-- Loading Ring -->
+  <div class="relative w-16 h-16">
+    <div class="absolute inset-0 rounded-full border-4 border-indigo-500/10"></div>
+    <div class="absolute inset-0 rounded-full border-4 border-t-indigo-600 animate-spin"></div>
+  </div>
+  <!-- Text -->
+  <span class="text-sm font-semibold text-gray-400 uppercase tracking-widest animate-pulse">Memuat halaman...</span>
+</div>

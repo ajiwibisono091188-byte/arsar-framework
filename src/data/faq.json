@@ -1,0 +1,18 @@
+[
+  {
+    "question": "Apa itu ARSAR AI MARKETING OS?",
+    "answer": "ARSAR AI MARKETING OS adalah framework website static modern yang dioptimalkan untuk marketing campaign dengan loading secepat kilat dan skor performa Lighthouse mendekati 100."
+  },
+  {
+    "question": "Mengapa website static lebih baik untuk kampanye iklan digital?",
+    "answer": "Website statis meminimalkan response time server dan tidak memiliki overhead database, sehingga konversi iklan naik drastis karena pengunjung tidak perlu menunggu loading lama."
+  },
+  {
+    "question": "Apakah framework ini ramah SEO?",
+    "answer": "Sangat ramah. Framework ini menyertakan generator Schema.org JSON-LD otomatis, sitemap generator, serta struktur heading HTML5 yang bersih untuk optimasi mesin pencari secara maksimal."
+  },
+  {
+    "question": "Bagaimana cara melakukan kustomisasi desain?",
+    "answer": "Kustomisasi dapat dilakukan dengan memodifikasi utility class dari TailwindCSS v4 pada komponen Nunjucks serta memodifikasi token di src/config/theme.json."
+  }
+]
