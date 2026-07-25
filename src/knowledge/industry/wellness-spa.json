@@ -1,0 +1,40 @@
+{
+  "industry": "Wellness Spa",
+  "audiences": [
+    {
+      "persona": "Pekerja Kantoran Lelah",
+      "ageRange": "25-45",
+      "painPoints": ["Stres kerja menumpuk", "Badan pegal-pegal", "Kurang tidur"],
+      "desire": "Relaksasi instan akhir pekan untuk mengembalikan energi"
+    }
+  ],
+  "painPoints": [
+    { "id": "pp_stress", "text": "Stres menumpuk akibat tekanan kerja lembur." }
+  ],
+  "benefits": [
+    { "id": "ben_relax", "text": "Pijat relaksasi aromaterapi tradisional untuk melemaskan otot tegang." }
+  ],
+  "offers": [
+    {
+      "id": "off_weekend_relax",
+      "title": "Paket Spa Relaksasi Akhir Pekan Hemat 20%",
+      "description": "Foot bath + Full Body Massage + Face Spa."
+    }
+  ],
+  "objections": [
+    {
+      "id": "obj_hygiene",
+      "objection": "Apakah peralatan dan terapis higienis?",
+      "rebuttal": "Kami mensterilkan seluruh peralatan spa dengan UV sterilizer sebelum dan sesudah perawatan."
+    }
+  ],
+  "cta": [
+    { "id": "cta_book_now", "text": "Reservasi Jadwal Pijat Sekarang", "action": "booking" }
+  ],
+  "keywords": ["spa terdekat", "pijat refleksi surabaya", "body massage spa murah"],
+  "faq": [
+    { "question": "Apakah harus reservasi sebelum datang?", "answer": "Sangat dianjurkan reservasi H-1 untuk mengamankan slot jam terapis pilihan Anda." }
+  ],
+  "frameworkRecommendations": ["bab", "storybrand"],
+  "seoIntent": "commercial"
+}

@@ -1,0 +1,42 @@
+{
+  "industry": "Automotive Financing",
+  "audiences": [
+    {
+      "persona": "Pembeli Mobil Pertama",
+      "ageRange": "22-30",
+      "painPoints": ["DP mobil terlalu mahal", "Khawatir cicilan bulanan mencekik", "BI Checking jelek / ditolak bank"],
+      "desire": "Mempunyai kendaraan pribadi untuk kerja tanpa ribet"
+    }
+  ],
+  "painPoints": [
+    { "id": "pp_high_dp", "text": "Uang muka (DP) awal terlalu tinggi untuk tabungan pekerja muda." },
+    { "id": "pp_slow_approval", "text": "Proses verifikasi berkas pengajuan kredit lambat memakan waktu berminggu-minggu." }
+  ],
+  "benefits": [
+    { "id": "ben_low_dp", "text": "DP Ringan mulai 10% disesuaikan dengan gaji bulanan Anda." },
+    { "id": "ben_fast_approve", "text": "Persetujuan kilat dalam 24 jam berkas dijemput ke rumah." }
+  ],
+  "offers": [
+    {
+      "id": "off_promo_first",
+      "title": "Promo DP 10% Khusus Pembeli Mobil Pertama",
+      "description": "Cicilan disesuaikan tenor panjang hingga 5 tahun."
+    }
+  ],
+  "objections": [
+    {
+      "id": "obj_hidden_fees",
+      "objection": "Apakah ada biaya admin terselubung di akhir?",
+      "rebuttal": "Tidak ada. Rincian angsuran kami transparan sejak awal simulasi kredit ditandatangani."
+    }
+  ],
+  "cta": [
+    { "id": "cta_whatsapp", "text": "Konsultasi Cicilan via WhatsApp", "action": "whatsapp" }
+  ],
+  "keywords": ["gadai bpkb", "kredit mobil bekas", "kredit murah surabaya", "pembiayaan dana cepat"],
+  "faq": [
+    { "question": "Apa saja syarat dokumen pengajuan?", "answer": "Cukup KTP, KK, Slip Gaji 3 bulan terakhir, dan Rekening Koran." }
+  ],
+  "frameworkRecommendations": ["pas", "aida"],
+  "seoIntent": "transactional"
+}
