@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Company Schema",
+  "description": "Skema identitas dan kontak legal perusahaan",
+  "$type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "legalName": { "type": "string" },
+    "tagline": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "phone": { "type": "string" },
+    "whatsapp": { "type": "string" },
+    "address": {
+      "type": "object",
+      "properties": {
+        "streetAddress": { "type": "string" },
+        "addressLocality": { "type": "string" },
+        "addressRegion": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "addressCountry": { "type": "string" }
+      },
+      "required": ["streetAddress", "addressLocality", "postalCode"]
+    }
+  },
+  "required": ["name", "legalName", "email", "phone", "address"],
+  "default": {
+    "name": "Arsar Digital",
+    "legalName": "PT Arsar Digital Indonesia",
+    "tagline": "AI marketing agency",
+    "email": "hello@arsardigital.com",
+    "phone": "+6281234567890",
+    "whatsapp": "+6281234567890",
+    "address": {
+      "streetAddress": "Jl. Sunset Road 88",
+      "addressLocality": "Badung",
+      "addressRegion": "Bali",
+      "postalCode": "80361",
+      "addressCountry": "ID"
+    }
+  },
+  "examples": [
+    {
+      "name": "Arsar Digital",
+      "legalName": "PT Arsar Digital Indonesia",
+      "email": "hello@arsardigital.com",
+      "phone": "+6281234567890",
+      "address": {
+        "streetAddress": "Jl. Sunset Road 88",
+        "addressLocality": "Badung",
+        "postalCode": "80361"
+      }
+    }
+  ]
+}

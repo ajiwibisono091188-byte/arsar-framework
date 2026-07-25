@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Article Schema",
+  "description": "Skema data artikel/berita blog",
+  "$type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "datePublished": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "author": { "type": "string" },
+    "image": { "type": "string" },
+    "category": { "type": "string" }
+  },
+  "required": ["title", "description", "datePublished", "author"],
+  "default": {
+    "title": "Judul Artikel",
+    "description": "Meta description artikel.",
+    "datePublished": "2026-07-25",
+    "author": "ARSAR Writer",
+    "image": "/cover.jpg",
+    "category": "SEO"
+  },
+  "examples": [
+    {
+      "title": "Judul Artikel",
+      "description": "Meta description artikel.",
+      "datePublished": "2026-07-25",
+      "author": "ARSAR Writer"
+    }
+  ]
+}

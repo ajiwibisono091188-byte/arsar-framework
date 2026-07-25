@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Theme Schema",
+  "description": "Skema setelan visual dan branding warna tema",
+  "$type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "primaryColor": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" },
+    "secondaryColor": { "type": "string", "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" },
+    "darkMode": { "type": "boolean" },
+    "borderRadius": { "type": "string" },
+    "fontFamily": { "type": "string" }
+  },
+  "required": ["primaryColor", "secondaryColor", "darkMode"],
+  "default": {
+    "name": "Default Theme",
+    "primaryColor": "#8b5cf6",
+    "secondaryColor": "#10b981",
+    "darkMode": true,
+    "borderRadius": "md",
+    "fontFamily": "sans"
+  },
+  "examples": [
+    {
+      "primaryColor": "#8b5cf6",
+      "secondaryColor": "#10b981",
+      "darkMode": true
+    }
+  ]
+}

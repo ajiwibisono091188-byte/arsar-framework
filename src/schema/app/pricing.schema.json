@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Pricing Schema",
+  "description": "Skema tawaran paket harga dan benefit produk",
+  "$type": "object",
+  "properties": {
+    "planName": { "type": "string" },
+    "price": { "type": "string" },
+    "priceInterval": { "type": "string" },
+    "description": { "type": "string" },
+    "featuresIncluded": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "isPopular": { "type": "boolean" }
+  },
+  "required": ["planName", "price", "featuresIncluded"],
+  "default": {
+    "planName": "Basic Plan",
+    "price": "Rp 500.000",
+    "priceInterval": "bulan",
+    "description": "Paket dasar.",
+    "featuresIncluded": ["Fitur A", "Fitur B"],
+    "isPopular": false
+  },
+  "examples": [
+    {
+      "planName": "Basic Plan",
+      "price": "Rp 500.000",
+      "featuresIncluded": ["Fitur A", "Fitur B"]
+    }
+  ]
+}

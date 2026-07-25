@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Forms Schema",
+  "description": "Skema setelan submit form pemasaran",
+  "$type": "object",
+  "properties": {
+    "contactForm": {
+      "type": "object",
+      "properties": {
+        "submitEndpoint": { "type": "string", "format": "url" },
+        "method": { "type": "string" },
+        "fields": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["submitEndpoint", "method", "fields"]
+    }
+  },
+  "required": ["contactForm"],
+  "default": {
+    "contactForm": {
+      "submitEndpoint": "https://api.arsardigital.com/contact",
+      "method": "POST",
+      "fields": ["name", "email", "message"]
+    }
+  },
+  "examples": [
+    {
+      "contactForm": {
+        "submitEndpoint": "https://api.arsardigital.com/contact",
+        "method": "POST",
+        "fields": ["name", "email", "message"]
+      }
+    }
+  ]
+}

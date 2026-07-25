@@ -1,91 +1,92 @@
-# ARSAR AI MARKETING OS v2.0 - Foundation Framework
+# ARSAR AI Marketing OS v2.0
 
-ARSAR AI Marketing OS v2.0 adalah enterprise-grade static website framework berbasis AI yang dioptimalkan khusus untuk pemasaran digital berkinerja tinggi. Framework ini menghasilkan output berupa HTML statis super cepat dengan target skor audit Lighthouse yang maksimal (Performance >=98, SEO 100, Accessibility >=95, Best Practice 100).
+[![Lighthouse Score](https://img.shields.io/badge/Lighthouse-100%2F100-success?logo=lighthouse)](docs/SEO_SPEC.md)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+[![SemVer](https://img.shields.io/badge/SemVer-2.0.0-indigo)](docs/VERSIONING.md)
 
-Framework ini dirancang agar dapat digunakan kembali (reusable) untuk berbagai relung proyek pemasaran seperti *Arsar Digital*, *YogaDAI*, Dealer Mobil, Properti, Asuransi, Klinik, dan niche bisnis lainnya.
+ARSAR AI Marketing OS v2.0 adalah **enterprise-grade static web framework** berbasis AI yang dioptimalkan khusus untuk kampanye pemasaran digital berkinerja tinggi. Framework ini menghasilkan output berupa HTML statis super cepat untuk meloloskan audit Core Web Vitals dengan skor Lighthouse maksimal.
 
-## Tech Stack
-- **Runtime**: Node.js LTS
-- **Build System**: Vite & PostCSS
-- **Styling**: TailwindCSS v4
-- **Client Scripting**: Alpine.js (reactive state engine)
-- **Templating**: Nunjucks (.njk)
-- **Content Engine**: Markdown (.md) + gray-matter + markdown-it
-- **Standards**: ES Modules, ESLint, Prettier
+Framework ini sepenuhnya reusable untuk berbagai macam kebutuhan proyek bisnis seperti agensi *Arsar Digital*, aplikasi *YogaDAI*, portal *BPKB Solusi*, Dealer Mobil, Properti, Asuransi, Klinik, dan sejenisnya.
 
 ---
 
-## Struktur Folder Proyek
+## ⚡ Fitur Utama (Key Features)
+
+- **Zero Hardcoding**: Warna, spacing, border-radius, dan bayangan diatur melalui [Design Tokens](docs/ARCHITECTURE.md#design-layer) JSON yang otomatis dikompilasi menjadi CSS variables untuk TailwindCSS v4.
+- **Config Engine**: Satu-satunya gerbang pembacaan setelan ([Config Loader](docs/CONFIG_SPEC.md)) yang mendukung multi-project overrides dan environment variables (Dev/Prod/Preview).
+- **Static Page Generator**: Pipa saluran otomatis berbasis Node.js yang merender template Nunjucks dan file tulisan Markdown (.md) menjadi file HTML siap pakai.
+- **Interactive Playgrounds**: Dilengkapi dua GUI inspeksi lokal:
+  - [Playground Component](/playground): Pratinjau 9 komponen UI reaktif (ala Storybook).
+  - [Config Playground](/config-playground): Panel pelacak JSON konfigurasi gabungan secara realtime.
+- **Skema SEO Otomatis**: Injeksi meta tags dinamis (OpenGraph/Twitter Cards) dan otomatisasi Schema.org (Organization, LocalBusiness, FAQPage) bawaan.
+- **Aksesibilitas (A11y)**: Seluruh komponen dasar ARIA-ready, lolos fokus keyboard ring, dan ramah pembaca layar.
+
+---
+
+## 🏛️ Arsitektur Sistem (System Architecture)
+
+Framework ini disusun menggunakan prinsip **Clean Architecture**:
+
 ```text
-arsar-framework/
-├── README.md               # Dokumentasi utama proyek
-├── package.json            # Konfigurasi package, scripts, & dependencies
-├── vite.config.js          # Konfigurasi bundler Vite (ESM)
-├── tailwind.config.js      # Placeholder kompatibilitas Tailwind CSS v4
-├── postcss.config.js       # Konfigurasi modul PostCSS
-├── eslint.config.js        # Konfigurasi ESLint Flat Config modern
-├── .prettierrc             # Aturan kode formatting Prettier
-├── .editorconfig           # Aturan editor pengkodean global
-├── .gitignore              # Daftar file yang dikecualikan dari Git
-├── .env.example            # Template berkas environment variables
-└── src/
-    ├── components/         # Komponen UI modular & reusable Nunjucks (.njk)
-    ├── layouts/            # Master layout halaman (default, landing, blog, dll)
-    ├── templates/          # Fragmen Nunjucks tambahan / partials
-    ├── pages/              # Halaman HTML statis hasil kompilasi generator
-    ├── content/            # File artikel/sumber halaman dalam format Markdown
-    ├── config/             # Data konfigurasi JSON (tema, sosial, seo, tracking)
-    ├── data/               # Dataset JSON (faq, testimoni, layanan, kota)
-    ├── schema/             # Cetak biru Schema.org JSON-LD (LocalBusiness, Org, dll)
-    ├── generator/          # Skrip Node.js static site generator
-    ├── scripts/            # Skrip pembantu khusus (deployment/CI)
-    ├── assets/             # Aset web (css, js, images, fonts, icons, videos)
-    ├── public/             # File statis yang langsung disalin ke folder dist
-    └── dist/               # Hasil build kompilasi akhir (HTML/CSS/JS statis)
+src/
+├── core/                   # Core Layer: Caching Loader & Validators (Logical Core)
+├── design/                 # Design Layer: Token JSON, Loader, & Component Macros (UI Core)
+├── generator/              # Generator Layer: Static Page Compilers (.js)
+├── assets/                 # Asset Layer: Tailwind v4 stylesheet & Vanilla ES Modules
+└── dist/                   # Output Layer: Kode produksi HTML/CSS/JS statis siap pakai
 ```
+*Rincian diagram alur data selengkapnya dapat dibaca di [Architecture Guide](docs/ARCHITECTURE.md).*
 
 ---
 
-## Cara Instalasi & Penggunaan
+## 🚀 Memulai Cepat (Quick Start)
 
 ### 1. Prasyarat (Prerequisites)
-Pastikan Node.js (LTS version) telah terpasang di sistem Anda.
+Pastikan Node.js (LTS version) telah terpasang di sistem operasi Anda.
 
-### 2. Instalasi Dependensi
-Jalankan perintah berikut di terminal Anda untuk memasang seluruh dependensi framework:
+### 2. Pasang Dependensi
+Jalankan terminal dan jalankan pemasangan paket dependensi:
 ```bash
 npm install
 ```
 
-### 3. Menjalankan Server Pengembangan (Development Mode)
-Menjalankan generator lokal untuk merender berkas HTML pertama kali, kemudian memulai Vite dev server lokal pada port `3000` dengan fitur Hot Module Replacement (HMR):
+### 3. Jalankan Mode Pengembangan
+Menjalankan generator awal dan memulai server pengembang lokal (Vite):
 ```bash
 npm run dev
 ```
+Akses server lokal Anda di:
+- **Homepage**: `http://localhost:3000`
+- **Component Storybook**: `http://localhost:3000/playground`
+- **Config Inspector**: `http://localhost:3000/config-playground`
 
-### 4. Melakukan Build Produksi (Production Build)
-Menjalankan kompilasi static site generator, meminifikasi stylesheet, dan mem-bundle JavaScript menggunakan Vite ke dalam folder `src/dist/`:
+### 4. Build untuk Produksi
+Guna meminifikasi stylesheet dan mengekspor seluruh kode statis HTML untuk dideploy:
 ```bash
 npm run build
 ```
 
-### 5. Memeriksa Hasil Build (Preview Mode)
-Menjalankan local server untuk melihat performa static site hasil build produksi sebelum diunggah ke hosting:
-```bash
-npm run preview
-```
+---
 
-### 6. Linting & Formatting
-Memeriksa dan merapikan style pengkodean:
-```bash
-# Linting kode JS
-npm run lint
+## 🛠️ Alur Kerja Pengembangan (Development Workflow)
 
-# Auto-format berkas js, css, json, njk, md, html
-npm run format
-```
+Proyek ini menggunakan **Conventional Commits** dan model pencabangan Git terstandardisasi:
+1. Buat branch baru dari `develop` dengan format `feature/nama-fitur` atau `bugfix/deskripsi-bug`.
+2. Tulis kode baru dan jalankan `npm run lint` & `npm run format` untuk merapikan gaya tulisan.
+3. Kirim Pull Request (PR) ke branch `develop` dengan mengisi checklist kepatuhan pada [PR Template](.github/PULL_REQUEST_TEMPLATE/pull_request_template.md).
+
+*Panduan lengkap kontribusi dapat dibaca di [Contributing Guide](docs/CONTRIBUTING.md).*
 
 ---
 
-## Lisensi
-Proyek ini dilisensikan di bawah lisensi MIT. Hak cipta &copy; 2026 PT Arsar Digital Indonesia.
+## 🗺️ Peta Jalan Proyek (Roadmap)
+- **Sprint 2B.0 (Project Governance)** - *Current Release (`v0.4.0`)*
+- **Sprint 3 (Content Engine)** - Markdown processing & RSS Feed
+- **Sprint 4 (SEO Engine)** - Sitemap & Google Search XML Automation
+- **Sprint 11 (Release v1.0)** - Audit Core Web Vitals & Launch
+*Lihat peta jalan rinci di [Product Roadmap](docs/ROADMAP.md).*
+
+---
+
+## 📝 Lisensi
+Proyek ini dilisensikan di bawah lisensi MIT. Hak Cipta &copy; 2026 PT Arsar Digital Indonesia.

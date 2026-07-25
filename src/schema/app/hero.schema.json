@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Hero Schema",
+  "description": "Skema konten banner utama di atas halaman",
+  "$type": "object",
+  "properties": {
+    "badge": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "ctaPrimary": {
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "path": { "type": "string" }
+      },
+      "required": ["label", "path"]
+    },
+    "ctaSecondary": {
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "path": { "type": "string" }
+      },
+      "required": ["label", "path"]
+    }
+  },
+  "required": ["title", "description", "ctaPrimary"],
+  "default": {
+    "badge": "⚡ AI marketing OS",
+    "title": "Default Hero Title",
+    "description": "Default Hero Description",
+    "ctaPrimary": {
+      "label": "Mulai",
+      "path": "/contact"
+    }
+  },
+  "examples": [
+    {
+      "title": "Default Hero Title",
+      "description": "Default Hero Description",
+      "ctaPrimary": {
+        "label": "Mulai",
+        "path": "/contact"
+      }
+    }
+  ]
+}

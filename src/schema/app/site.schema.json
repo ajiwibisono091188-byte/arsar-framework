@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Site Schema",
+  "description": "Skema konfigurasi global untuk situs web ARSAR",
+  "$type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "url": { "type": "string", "format": "url" },
+    "language": { "type": "string" },
+    "country": { "type": "string" },
+    "version": { "type": "string" },
+    "assetVersion": { "type": "string" },
+    "logo": { "type": "string" }
+  },
+  "required": ["title", "url", "language"],
+  "default": {
+    "title": "ARSAR Marketing Web",
+    "url": "https://arsardigital.com",
+    "language": "id",
+    "country": "ID",
+    "version": "2.0.0",
+    "assetVersion": "1.0.0",
+    "logo": "/assets/images/logo.png"
+  },
+  "examples": [
+    {
+      "title": "Arsar Digital Portal",
+      "url": "https://arsardigital.com",
+      "language": "id"
+    }
+  ]
+}

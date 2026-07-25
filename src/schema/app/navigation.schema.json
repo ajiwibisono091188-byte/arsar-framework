@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Navigation Schema",
+  "description": "Skema menu navigasi header dan footer",
+  "$type": "object",
+  "properties": {
+    "header": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string" },
+          "path": { "type": "string" }
+        },
+        "required": ["label", "path"]
+      }
+    },
+    "footer": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string" },
+          "path": { "type": "string" }
+        },
+        "required": ["label", "path"]
+      }
+    }
+  },
+  "required": ["header", "footer"],
+  "default": {
+    "header": [{ "label": "Beranda", "path": "/" }],
+    "footer": [{ "label": "Kontak", "path": "/contact" }]
+  },
+  "examples": [
+    {
+      "header": [{ "label": "Beranda", "path": "/" }],
+      "footer": [{ "label": "Kontak", "path": "/contact" }]
+    }
+  ]
+}

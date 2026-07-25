@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Service Schema",
+  "description": "Skema data layanan yang ditawarkan",
+  "$type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "icon": { "type": "string" },
+    "slug": { "type": "string" }
+  },
+  "required": ["title", "description", "slug"],
+  "default": {
+    "title": "Jasa SEO",
+    "description": "Jasa optimasi pencarian.",
+    "icon": "globe",
+    "slug": "jasa-seo"
+  },
+  "examples": [
+    {
+      "title": "Jasa SEO",
+      "description": "Jasa optimasi pencarian.",
+      "slug": "jasa-seo"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Benefit Schema",
+  "description": "Skema keunggulan utama layanan / produk",
+  "$type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "icon": { "type": "string" }
+  },
+  "required": ["title", "description"],
+  "default": {
+    "title": "Kecepatan Akses",
+    "description": "Situs memuat di bawah 1 detik.",
+    "icon": "lightning"
+  },
+  "examples": [
+    {
+      "title": "Kecepatan Akses",
+      "description": "Situs memuat di bawah 1 detik."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "ARSAR Default Theme",
+  "primaryColor": "#8b5cf6",
+  "secondaryColor": "#10b981",
+  "darkMode": true,
+  "borderRadius": "md",
+  "fontFamily": "sans"
+}

@@ -1,0 +1,6 @@
+{
+  "provider": "Cloudflare Pages",
+  "buildDir": "dist",
+  "cleanUrls": true,
+  "cacheControlMaxAge": 31536000
+}

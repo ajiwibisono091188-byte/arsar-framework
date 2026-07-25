@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Tracking Schema",
+  "description": "Skema setelan analitik dan pixel iklan",
+  "$type": "object",
+  "properties": {
+    "googleAnalytics": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "measurementId": { "type": "string" }
+      },
+      "required": ["enabled"]
+    },
+    "facebookPixel": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "pixelId": { "type": "string" }
+      },
+      "required": ["enabled"]
+    },
+    "googleTagManager": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "containerId": { "type": "string" }
+      },
+      "required": ["enabled"]
+    }
+  },
+  "required": ["googleAnalytics", "facebookPixel"],
+  "default": {
+    "googleAnalytics": { "enabled": false, "measurementId": "" },
+    "facebookPixel": { "enabled": false, "pixelId": "" }
+  },
+  "examples": [
+    {
+      "googleAnalytics": { "enabled": false },
+      "facebookPixel": { "enabled": false }
+    }
+  ]
+}

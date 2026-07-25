@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "FAQ Schema",
+  "description": "Skema tanya jawab (FAQ) berulang",
+  "$type": "object",
+  "properties": {
+    "question": { "type": "string" },
+    "answer": { "type": "string" }
+  },
+  "required": ["question", "answer"],
+  "default": {
+    "question": "Pertanyaan default?",
+    "answer": "Jawaban default."
+  },
+  "examples": [
+    {
+      "question": "Pertanyaan default?",
+      "answer": "Jawaban default."
+    }
+  ]
+}

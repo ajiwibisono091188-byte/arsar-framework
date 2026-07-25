@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Deployment Schema",
+  "description": "Skema setelan deployment dan ekspor static file",
+  "$type": "object",
+  "properties": {
+    "provider": { "type": "string" },
+    "buildDir": { "type": "string" },
+    "cleanUrls": { "type": "boolean" },
+    "cacheControlMaxAge": { "type": "number" }
+  },
+  "required": ["provider", "buildDir", "cleanUrls"],
+  "default": {
+    "provider": "Cloudflare Pages",
+    "buildDir": "dist",
+    "cleanUrls": true,
+    "cacheControlMaxAge": 31536000
+  },
+  "examples": [
+    {
+      "provider": "Cloudflare Pages",
+      "buildDir": "dist",
+      "cleanUrls": true
+    }
+  ]
+}

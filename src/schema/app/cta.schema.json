@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "CTA Schema",
+  "description": "Skema bagian ajakan konversi (Call to Action)",
+  "$type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "whatsappText": { "type": "string" },
+    "emailEndpoint": { "type": "string", "format": "url" }
+  },
+  "required": ["title", "description"],
+  "default": {
+    "title": "Siap Bermitra?",
+    "description": "Klik tombol di bawah untuk konsultasi.",
+    "whatsappText": "Halo, saya tertarik dengan jasa Anda."
+  },
+  "examples": [
+    {
+      "title": "Siap Bermitra?",
+      "description": "Klik tombol di bawah untuk konsultasi."
+    }
+  ]
+}

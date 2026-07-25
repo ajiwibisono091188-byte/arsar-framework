@@ -1,0 +1,12 @@
+{
+  "planName": "Pro Plan",
+  "price": "Rp 2.500.000",
+  "priceInterval": "bulan",
+  "description": "Cocok untuk pemilik bisnis UKM berkembang.",
+  "featuresIncluded": [
+    "Lighthouse Performance >=98",
+    "No Database Overheads",
+    "Automatic JSON-LD Schema"
+  ],
+  "isPopular": true
+}

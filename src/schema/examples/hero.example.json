@@ -1,0 +1,13 @@
+{
+  "badge": "⚡ AI Marketing OS v2.0",
+  "title": "Pemasaran Otomatis Dengan AI Marketing Engine",
+  "description": "Ubah landing page statis Anda menjadi mesin penghasil konversi otomatis tercepat di dunia.",
+  "ctaPrimary": {
+    "label": "Konsultasi Gratis",
+    "path": "/contact"
+  },
+  "ctaSecondary": {
+    "label": "Pelajari Fitur",
+    "path": "#services"
+  }
+}

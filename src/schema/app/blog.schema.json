@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Blog Schema",
+  "description": "Skema setelan modul halaman kumpulan artikel blog",
+  "$type": "object",
+  "properties": {
+    "postsPerPage": { "type": "number" },
+    "rssEnabled": { "type": "boolean" },
+    "authorDefault": { "type": "string" },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["postsPerPage", "rssEnabled", "categories"],
+  "default": {
+    "postsPerPage": 6,
+    "rssEnabled": true,
+    "authorDefault": "Editorial Team",
+    "categories": ["News", "Updates"]
+  },
+  "examples": [
+    {
+      "postsPerPage": 6,
+      "rssEnabled": true,
+      "categories": ["News", "Updates"]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "frameworkVersion": "2.0.0",
+  "compatibleSince": "2.0.0",
+  "deprecated": false,
+  "title": "Landing Schema",
+  "description": "Skema toggle keaktifan seksi landing page pemasaran",
+  "$type": "object",
+  "properties": {
+    "featuresBlockEnabled": { "type": "boolean" },
+    "testimonialsBlockEnabled": { "type": "boolean" },
+    "faqBlockEnabled": { "type": "boolean" },
+    "ctaBlockEnabled": { "type": "boolean" },
+    "calculatorBlockEnabled": { "type": "boolean" }
+  },
+  "required": ["featuresBlockEnabled", "testimonialsBlockEnabled", "faqBlockEnabled", "ctaBlockEnabled"],
+  "default": {
+    "featuresBlockEnabled": true,
+    "testimonialsBlockEnabled": true,
+    "faqBlockEnabled": true,
+    "ctaBlockEnabled": true,
+    "calculatorBlockEnabled": false
+  },
+  "examples": [
+    {
+      "featuresBlockEnabled": true,
+      "testimonialsBlockEnabled": true,
+      "faqBlockEnabled": true,
+      "ctaBlockEnabled": true
+    }
+  ]
+}
